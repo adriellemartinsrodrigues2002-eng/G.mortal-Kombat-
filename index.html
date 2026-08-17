@@ -3,162 +3,465 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zombie Fight — Adrielle vs Gabriel</title>
+<title>Zombie Fight - Adrielle vs Gabriel</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  user-select: none;
+*{box-sizing:border-box}
+
+body{
+margin:0;
+min-height:100vh;
+background:#09050d;
+color:white;
+font-family:Arial,sans-serif;
+text-align:center;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at top, #421044, #09070d 55%, #020204);
-  color: white;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
+h1{
+font-size:42px;
+margin:20px 0 5px;
+color:#d85cff;
+text-shadow:0 0 20px #8a00ff;
 }
 
-.container {
-  width: 100%;
-  max-width: 900px;
-  margin: auto;
-  padding: 18px;
+.subtitle{
+color:#bbb;
+margin-bottom:20px;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 18px;
+.arena{
+position:relative;
+width:95%;
+max-width:850px;
+height:430px;
+margin:auto;
+border:3px solid #7b2699;
+border-radius:20px;
+overflow:hidden;
+background:
+radial-gradient(circle at 50% 25%,#5b285f 0%,#160d20 35%,#050507 75%);
+box-shadow:0 0 40px #680080;
 }
 
-header h1 {
-  margin: 5px 0;
-  font-size: clamp(30px, 8vw, 58px);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 0 0 20px #a000ff;
+.moon{
+position:absolute;
+width:90px;
+height:90px;
+border-radius:50%;
+background:#eee;
+top:35px;
+left:calc(50% - 45px);
+box-shadow:0 0 30px white;
 }
 
-header p {
-  color: #bbb;
-  margin: 5px;
+.ground{
+position:absolute;
+bottom:0;
+width:100%;
+height:90px;
+background:#151019;
+border-top:3px solid #44204d;
 }
 
-.arena {
-  position: relative;
-  min-height: 480px;
-  border: 2px solid #702080;
-  border-radius: 22px;
-  overflow: hidden;
-  background:
-    linear-gradient(to bottom, transparent 55%, rgba(0,0,0,.8)),
-    radial-gradient(circle at 30% 30%, #35134c, transparent 25%),
-    radial-gradient(circle at 75% 30%, #4a101b, transparent 25%),
-    #08080d;
-  box-shadow: 0 0 40px rgba(150,0,255,.25);
+.fighter{
+position:absolute;
+bottom:70px;
+width:170px;
+z-index:2;
 }
 
-.moon {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: #ddd;
-  border-radius: 50%;
-  top: 35px;
-  left: calc(50% - 50px);
-  box-shadow: 0 0 35px #fff;
-  opacity: .8;
+.adrielle{
+left:5%;
 }
 
-.ground {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #17131c 0px,
-      #17131c 30px,
-      #211725 31px,
-      #211725 32px
-    );
-  border-top: 3px solid #3c243f;
+.gabriel{
+right:5%;
 }
 
-.fighter {
-  position: absolute;
-  bottom: 85px;
-  width: 140px;
-  text-align: center;
-  transition: .15s;
+.character{
+font-size:100px;
+transition:.2s;
+filter:drop-shadow(0 8px 5px black);
 }
 
-.fighter.adrielle {
-  left: 8%;
+.name{
+font-size:22px;
+font-weight:bold;
+margin-top:5px;
 }
 
-.fighter.gabriel {
-  right: 8%;
+.lifeBox{
+width:150px;
+height:18px;
+border:2px solid white;
+border-radius:20px;
+background:#310009;
+overflow:hidden;
+margin:8px auto;
 }
 
-.character {
-  font-size: 100px;
-  filter: drop-shadow(0 10px 8px #000);
-  transition: .15s;
+.life{
+height:100%;
+width:100%;
+background:linear-gradient(90deg,#00ff44,#c8ff00);
+transition:.3s;
 }
 
-.name {
-  font-weight: bold;
-  font-size: 20px;
-  text-shadow: 0 2px 4px #000;
+.attack{
+animation:attack .25s;
 }
 
-.life-area {
-  margin: 10px auto;
-  width: 140px;
-  height: 18px;
-  border: 2px solid white;
-  background: #22000a;
-  border-radius: 10px;
-  overflow: hidden;
+.hit{
+animation:hit .25s;
 }
 
-.life {
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(90deg, #00ff55, #b6ff00);
-  transition: width .3s;
+@keyframes attack{
+50%{transform:scale(1.3) translateX(25px)}
 }
 
-.gabriel .life {
-  margin-left: auto;
+@keyframes hit{
+50%{transform:translateX(-20px) rotate(-10deg);filter:brightness(3)}
 }
 
-.attack {
-  animation: attack .25s;
+.message{
+font-size:20px;
+font-weight:bold;
+color:#ffd85c;
+margin:18px 10px;
+min-height:28px;
 }
 
-.hit {
-  animation: hit .25s;
+.controls{
+width:95%;
+max-width:850px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
 }
 
-@keyframes attack {
-  50% {
-    transform: scale(1.25) translateX(25px);
-  }
+.panel{
+background:#120d16;
+border:2px solid #39213f;
+border-radius:16px;
+padding:15px;
 }
 
-@keyframes hit {
-  50% {
-    transform: translateX(-15px) rotate(-8deg);
-    filter: brightness(3);
-  }
+.panel h2{
+font-size:18px;
+margin:0 0 12px;
 }
 
-.controls {
-  margin-top: 18px;
-  display: grid;
-  grid-template
+.buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+}
+
+button{
+border:0;
+border-radius:12px;
+padding:14px 5px;
+font-weight:bold;
+color:white;
+background:linear-gradient(#70278a,#35123f);
+box-shadow:0 4px 0 #18091d;
+font-size:14px;
+}
+
+button:active{
+transform:translateY(3px);
+box-shadow:0 1px 0 #18091d;
+}
+
+.special{
+background:linear-gradient(#c52d7d,#70133f);
+}
+
+.defense{
+background:linear-gradient(#28769b,#123b50);
+}
+
+#restart{
+display:none;
+margin:20px auto;
+font-size:18px;
+padding:15px 25px;
+background:linear-gradient(#e63d48,#780b12);
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:34px;
+}
+
+.arena{
+height:390px;
+}
+
+.fighter{
+width:125px;
+}
+
+.character{
+font-size:75px;
+}
+
+.lifeBox{
+width:110px;
+}
+
+.name{
+font-size:18px;
+}
+
+.controls{
+grid-template-columns:1fr;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<h1>🧟‍♀️ ZOMBIE FIGHT 🧟</h1>
+
+<div class="subtitle">
+Adrielle ⚔️ Gabriel
+</div>
+
+<div class="arena">
+
+<div class="moon"></div>
+<div class="ground"></div>
+
+<div class="fighter adrielle">
+
+<div class="lifeBox">
+<div class="life" id="lifeAdrielle"></div>
+</div>
+
+<div class="character" id="charAdrielle">🧟‍♀️</div>
+
+<div class="name">ADRIELLE</div>
+
+</div>
+
+<div class="fighter gabriel">
+
+<div class="lifeBox">
+<div class="life" id="lifeGabriel"></div>
+</div>
+
+<div class="character" id="charGabriel">🧟</div>
+
+<div class="name">GABRIEL</div>
+
+</div>
+
+</div>
+
+<div class="message" id="message">
+🔥 A batalha começou!
+</div>
+
+<div class="controls">
+
+<div class="panel">
+
+<h2>🧟‍♀️ ADRIELLE</h2>
+
+<div class="buttons">
+
+<button onclick="attack('adrielle','gabriel',8)">
+👊 SOCO
+</button>
+
+<button onclick="attack('adrielle','gabriel',12)">
+🦵 CHUTE
+</button>
+
+<button class="special" onclick="attack('adrielle','gabriel',22)">
+⚡ ESPECIAL
+</button>
+
+<button class="defense" onclick="defend('adrielle')">
+🛡️ DEFESA
+</button>
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>🧟 GABRIEL</h2>
+
+<div class="buttons">
+
+<button onclick="attack('gabriel','adrielle',8)">
+👊 SOCO
+</button>
+
+<button onclick="attack('gabriel','adrielle',12)">
+🦵 CHUTE
+</button>
+
+<button class="special" onclick="attack('gabriel','adrielle',22)">
+⚡ ESPECIAL
+</button>
+
+<button class="defense" onclick="defend('gabriel')">
+🛡️ DEFESA
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button id="restart" onclick="restartGame()">
+🔥 LUTAR NOVAMENTE
+</button>
+
+<script>
+
+let life={
+adrielle:100,
+gabriel:100
+};
+
+let defending={
+adrielle:false,
+gabriel:false
+};
+
+let gameOver=false;
+
+function attack(attacker,target,damage){
+
+if(gameOver)return;
+
+if(defending[target]){
+damage=Math.floor(damage/2);
+defending[target]=false;
+
+message(
+target.toUpperCase()+" bloqueou o ataque! 🛡️"
+);
+}
+
+life[target]-=damage;
+
+if(life[target]<0){
+life[target]=0;
+}
+
+animate("char"+capitalize(attacker),"attack");
+animate("char"+capitalize(target),"hit");
+
+update();
+
+if(life[target]<=0){
+
+gameOver=true;
+
+message(
+"💀 FATALITY! "+attacker.toUpperCase()+" VENCEU! 🏆"
+);
+
+document.getElementById("restart").style.display="block";
+
+}else{
+
+message(
+attacker.toUpperCase()+
+" causou "+
+damage+
+" de dano! 💥"
+);
+
+}
+
+}
+
+function defend(player){
+
+if(gameOver)return;
+
+defending[player]=true;
+
+message(
+player.toUpperCase()+" está se defendendo! 🛡️"
+);
+
+}
+
+function update(){
+
+document.getElementById("lifeAdrielle").style.width=
+life.adrielle+"%";
+
+document.getElementById("lifeGabriel").style.width=
+life.gabriel+"%";
+
+}
+
+function message(text){
+
+document.getElementById("message").textContent=text;
+
+}
+
+function animate(id,animation){
+
+let element=document.getElementById(id);
+
+element.classList.remove(animation);
+
+void element.offsetWidth;
+
+element.classList.add(animation);
+
+setTimeout(function(){
+
+element.classList.remove(animation);
+
+},300);
+
+}
+
+function capitalize(text){
+
+return text.charAt(0).toUpperCase()+text.slice(1);
+
+}
+
+function restartGame(){
+
+life.adrielle=100;
+life.gabriel=100;
+
+defending.adrielle=false;
+defending.gabriel=false;
+
+gameOver=false;
+
+update();
+
+document.getElementById("restart").style.display="none";
+
+message("🔥 A batalha começou novamente!");
+
+}
+
+update();
+
+</script>
+
+</body>
+</html>
+ 
