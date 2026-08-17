@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#07070a">
+<meta name="description" content="Um presente especial para Gabriel.">
+<title>Para Gabriel ⚔️</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%;background:#07070a;color:#f5f5f5;font-family:Arial,Helvetica,sans-serif}
+  body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:
+      radial-gradient(circle at 50% 20%, rgba(185,20,28,.20), transparent 34%),
+      radial-gradient(circle at 15% 80%, rgba(230,150,35,.10), transparent 28%),
+      #07070a;
+  }
+  body:before{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.11;
+    background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:4px 4px,4px 4px;
+    mix-blend-mode:screen;
+  }
+  .wrap{width:min(940px,100%);margin:auto;padding:22px 16px 42px}
+  .top{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#aaa;
+    margin-bottom:34px
+  }
+  .seal{
+    width:38px;height:38px;border:1px solid #b5222a;border-radius:50%;
+    display:grid;place-items:center;color:#e5a33a;font-weight:900;
+    box-shadow:0 0 20px rgba(181,34,42,.22)
+  }
+  .hero{text-align:center;padding:28px 0 18px}
+  .eyebrow{color:#d79a35;font-weight:800;letter-spacing:4px;font-size:12px;text-transform:uppercase}
+  h1{
+    margin:12px 0 5px;font-size:clamp(42px,12vw,88px);line-height:.86;
+    letter-spacing:-4px;text-transform:uppercase;font-weight:1000;
+    text-shadow:0 5px 0 #420b0e,0 0 35px rgba(220,32,40,.28)
+  }
+  .subtitle{margin:14px auto 0;color:#bdbdbd;max-width:560px;line-height:1.6}
+  .name{
+    display:inline-block;margin-top:20px;padding:8px 16px;border:1px solid #4d2023;
+    background:rgba(80,8,12,.28);color:#f0b75b;border-radius:999px;
+    letter-spacing:3px;text-transform:uppercase;font-weight:800;font-size:13px
+  }
+  .card{
+    margin:28px auto 0;max-width:760px;border:1px solid #332326;border-radius:22px;
+    padding:28px;background:linear-gradient(145deg,rgba(22,21,25,.94),rgba(8,8,11,.96));
+    box-shadow:0 20px 70px rgba(0,0,0,.45),0 0 35px rgba(185,20,28,.08);
+    position:relative;overflow:hidden
+  }
+  .card:after{
+    content:"";position:absolute;inset:auto -20% -75% -20%;height:230px;
+    background:radial-gradient(ellipse,rgba(190,24,31,.18),transparent 65%);
+    pointer-events:none
+  }
+  .message{font-size:18px;line-height:1.65;color:#e4e4e4;margin:0 auto 24px;max-width:610px}
+  .button{
+    appearance:none;border:0;cursor:pointer;color:white;font-weight:1000;
+    letter-spacing:2px;text-transform:uppercase;font-size:16px;
+    padding:17px 28px;border-radius:12px;
+    background:linear-gradient(180deg,#d7353d,#8f1118);
+    box-shadow:0 6px 0 #4b080c,0 0 30px rgba(213,36,45,.25);
+    transition:.15s transform,.15s filter
+  }
+  .button:hover{filter:brightness(1.1)}
+  .button:active{transform:translateY(4px);box-shadow:0 2px 0 #4b080c}
+  .hint{font-size:12px;color:#777;margin-top:15px}
+  #game{display:none;margin-top:28px}
+  .gamehead{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}
+  .game-title{font-weight:1000;letter-spacing:2px;text-transform:uppercase}
+  .status{font-size:11px;color:#d79a35;border:1px solid #4d3820;border-radius:999px;padding:7px 10px}
+  .screen{
+    aspect-ratio:4/3;border-radius:16px;border:1px solid #5b2529;
+    background:
+      radial-gradient(circle at 50% 35%,rgba(205,35,40,.15),transparent 35%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px),
+      #020204;
+    display:grid;place-items:center;text-align:center;padding:25px;
+    box-shadow:inset 0 0 70px #000,0 15px 45px rgba(0,0,0,.55)
+  }
+  .screen strong{display:block;font-size:clamp(25px,7vw,48px);text-transform:uppercase;letter-spacing:2px}
+  .screen p{color:#999;max-width:500px;line-height:1.5}
+  .footer{text-align:center;color:#555;font-size:11px;letter-spacing:1px;margin-top:28px}
+  .tiny{color:#777}
+  @media(max-width:520px){
+    .wrap{padding-left:14px;padding-right:14px}
+    .card{padding:22px 18px}
+    h1{letter-spacing:-2px}
+    .message{font-size:16px}
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top">
+    <span>ACCESS GRANTED</span>
+    <span class="seal">MK</span>
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Um presente especial</div>
+    <h1>Ultimate<br>Mortal Kombat 3</h1>
+    <div class="name">Para Gabriel</div>
+    <p class="subtitle">
+      Algumas coisas são melhores quando vêm acompanhadas de uma surpresa.
+      Encoste, descubra e prepare-se para lutar. ⚔️
+    </p>
+  </section>
+
+  <section class="card">
+    <p class="message">
+      Gabriel, você desbloqueou seu presente. 😈<br>
+      Agora só falta descobrir o que está esperando por você.
+    </p>
+
+    <button class="button" id="playBtn">Jogar agora</button>
+    <div class="hint">O jogo será carregado nesta página.</div>
+
+    <div id="game">
+      <div class="gamehead">
+        <div class="game-title">Ultimate Mortal Kombat 3 · SNES</div>
+        <div class="status">NFC OK</div>
+      </div>
+      <div class="screen">
+        <div>
+          <strong>Jogo desbloqueado</strong>
+          <p>
+            Esta área já está preparada para receber o emulador web e o arquivo
+            do jogo. Quando essa parte for configurada, o botão acima iniciará
+            o Mortal Kombat diretamente no navegador.
+          </p>
+          <span class="tiny">Fatality loading...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">MADE WITH ❤️ · GABRIEL EDITION</div>
+</main>
+
+<script>
+  const btn = document.getElementById("playBtn");
+  const game = document.getElementById("game");
+  btn.addEventListener("click", () => {
+    game.style.display = "block";
+    btn.textContent = "Jogo desbloqueado";
+    btn.disabled = true;
+    game.scrollIntoView({behavior:"smooth", block:"center"});
+  });
+</script>
+</body>
+</html>
