@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zombie Fight — Adrielle vs Gabriel</title>
 
+<style>
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #421044, #09070d 55%, #020204);
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 18px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+header h1 {
+  margin: 5px 0;
+  font-size: clamp(30px, 8vw, 58px);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px #a000ff;
+}
+
+header p {
+  color: #bbb;
+  margin: 5px;
+}
+
+.arena {
+  position: relative;
+  min-height: 480px;
+  border: 2px solid #702080;
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    linear-gradient(to bottom, transparent 55%, rgba(0,0,0,.8)),
+    radial-gradient(circle at 30% 30%, #35134c, transparent 25%),
+    radial-gradient(circle at 75% 30%, #4a101b, transparent 25%),
+    #08080d;
+  box-shadow: 0 0 40px rgba(150,0,255,.25);
+}
+
+.moon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #ddd;
+  border-radius: 50%;
+  top: 35px;
+  left: calc(50% - 50px);
+  box-shadow: 0 0 35px #fff;
+  opacity: .8;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #17131c 0px,
+      #17131c 30px,
+      #211725 31px,
+      #211725 32px
+    );
+  border-top: 3px solid #3c243f;
+}
+
+.fighter {
+  position: absolute;
+  bottom: 85px;
+  width: 140px;
+  text-align: center;
+  transition: .15s;
+}
+
+.fighter.adrielle {
+  left: 8%;
+}
+
+.fighter.gabriel {
+  right: 8%;
+}
+
+.character {
+  font-size: 100px;
+  filter: drop-shadow(0 10px 8px #000);
+  transition: .15s;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 0 2px 4px #000;
+}
+
+.life-area {
+  margin: 10px auto;
+  width: 140px;
+  height: 18px;
+  border: 2px solid white;
+  background: #22000a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.life {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #00ff55, #b6ff00);
+  transition: width .3s;
+}
+
+.gabriel .life {
+  margin-left: auto;
+}
+
+.attack {
+  animation: attack .25s;
+}
+
+.hit {
+  animation: hit .25s;
+}
+
+@keyframes attack {
+  50% {
+    transform: scale(1.25) translateX(25px);
+  }
+}
+
+@keyframes hit {
+  50% {
+    transform: translateX(-15px) rotate(-8deg);
+    filter: brightness(3);
+  }
+}
+
+.controls {
+  margin-top: 18px;
+  display: grid;
+  grid-template
